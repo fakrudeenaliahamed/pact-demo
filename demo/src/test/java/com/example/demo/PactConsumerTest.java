@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -53,6 +52,7 @@ public class PactConsumerTest {
     @Test
     @PactTestFor(pactMethod = "getDemo",port = "9090")
     void getAllProducts_whenProductsExist(MockServer mockServer) {
+
         RestTemplate template = new RestTemplateBuilder().rootUri("http://localhost:"+port+"/").build();
         String result = template.getForObject("/hello",String.class);
         assertTrue(result.contains("sample"));

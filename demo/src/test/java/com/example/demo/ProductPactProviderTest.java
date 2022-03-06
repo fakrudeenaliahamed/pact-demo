@@ -17,7 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @Provider("demoService")
 //@PactFolder("pact")
-@PactBroker(host = "localhost", port = "8000",authentication = @PactBrokerAuth(username = "pact_workshop",password ="pact_workshop"),tags = "2.1")
+@PactBroker(host = "localhost", port = "8000",authentication = @PactBrokerAuth(username = "pact_workshop",password ="pact_workshop"),tags = "2.2")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ProductPactProviderTest {
 
@@ -35,10 +35,13 @@ public class ProductPactProviderTest {
         context.verifyInteraction();
     }
 
+
     @State("sample demo")
     void toProductsExistState() {
 
     }
+
+
 
 
 }

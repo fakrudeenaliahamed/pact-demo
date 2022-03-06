@@ -1,0 +1,48 @@
+{
+  "consumer": {
+    "name": "kafka-consumer"
+  },
+  "provider": {
+    "name": "kafka-provider"
+  },
+  "messages": [
+    {
+      "description": "message with null sent",
+      "metaData": {
+        "kafka_topic": "sample",
+        "contentType": "application/json"
+      },
+      "contents": {
+        "name": "fakrudeen"
+      },
+      "matchingRules": {
+        "body": {
+          "$.msg": {
+            "matchers": [
+              {
+                "match": "type"
+              }
+            ],
+            "combine": "AND"
+          },
+          "$.name": {
+            "matchers": [
+              {
+                "match": "type"
+              }
+            ],
+            "combine": "AND"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.10"
+    }
+  }
+}
